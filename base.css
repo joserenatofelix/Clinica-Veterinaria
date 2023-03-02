@@ -1,0 +1,109 @@
+html, body {
+    margin: 0;
+}
+body {
+    background-color: #e6d5d5;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
+    background-color: rgb(127, 255, 255);
+}
+.main {
+    display: flex;
+    flex-flow: column;
+    width: 85%;
+}
+.menu {
+    width: 15%;
+    background-color: #38a3a5;
+    padding: 10px 20px 0px;
+}
+.header {
+    background-color: #22577a;
+    min-height: 150px;
+    text-align: center;
+    
+}
+.content {
+    background-color: #c0cc57;
+    min-height: 300px;
+    padding: 20px; 
+    margin: 0 auto;
+    
+}
+.content, p{
+     margin: 0 0 1em;
+}
+.footer {
+    background-color: #c7f9cc;
+    min-height: 150px;
+}
+.horario-atendimento{
+    background: linear-gradient(90deg, rgb(116, 209, 204) 35%, rgba(0,212,255,1) 100%);
+}
+.titulo-tabela{
+    margin: 0 0 1em;
+}
+.titulo-atendimento {
+    text-align: center;
+}
+.body-atendimento{
+    background-color:#afd8e9;
+
+}
+.imagem-mapa{
+   vertical-align: top;     
+}
+#inicio{
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 1em;
+    clear: left;
+}
+.lista-template{
+    list-style: none;
+    padding:4px 8px;  
+}
+.lista-pagina-inicial::before{
+    content: "★"
+}
+.lista-template{
+    line-height: 1.5;
+}
+
+
+.imagem-dog{
+    width: 0%;
+    float: right;
+    margin: 0 20px 20px 0;
+    opacity: 0.5;
+
+}
+/**para todos os inputs e textarea queremos essa informação*/
+.input-padrao{
+    display: block;
+    margin: 0 0 20px;
+/**espaço entre borda e conteudo*/
+    padding: 10px 25px;
+/**ocupa 50% pagina*/
+    width: 50%;
+    border-radius: 5px;
+}
+.body-contato{
+    background-color:#c1d6cd;
+
+}
+.sobrenos-titulo{
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 1em;
+}
+.body-sobrenos{
+    background-color:#c9c8db;
+ 
+}

@@ -1,0 +1,67 @@
+<!--imagem endereço completo,telefone,formulario email e iframe google map -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index - Utilizar como modelo</title>
+    <link rel="stylesheet" href="base.css">
+</head>
+
+<body class="body-contato">
+
+    <div>
+        <form action="">
+            <label for="nomesobrenome">Nome e sobrenome</label>
+            <input type="text" id="nomesobrenome" class="input-padrao" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" class="input-padrao" required placeholder="seuemail@dominio.com" />
+
+            <label for="telefone">Telefone</label>
+            <input type="telefone" id="telefone" class="input-padrao" required placeholder="(xx)xxxxx-xxxx" />
+
+            <label for="mensagem">Mensagem</label>
+            <textarea name="" id="mensagem" cols="70" rows="10" class="input-padrao" required></textarea>
+            <input type="submit" value="Enviar" name="Enviar formulário">
+        </form>
+
+    </div>
+    </div>
+    <section class="room_details_area">
+        <div class="container">
+            <div class="row overview_inner">
+                <div class="col-md-4 col-sm-4">
+                    <div class="overview_left">
+                        <a href="index.html">voltar</a>
+                        <h2 style="text-align: center ;">Localização / Contato</h2>
+
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <div class="overview_right">
+                        <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9420416863964!2d-46.69849808501929!3d-23.713763684607436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4fa4c2f942e7%3A0x5fb94e4957f1035!2sRua%20Ant%C3%B4nio%20Le%20Voci%2C%20545%20-%20Terceira%20Divis%C3%A3o%20de%20Interlagos%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004809-220!5e0!3m2!1spt-BR!2sbr!4v1675949469862!5m2!1spt-BR!2sbr" 
+                        width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>                        
+
+                        <p> <a href="#"><i class="lnr lnr-location"></i>Rua Antônio Le Voci, 545 - Terceira Divisão de Interlagos, São Paulo - SP, 04809-220.</a><br>
+                            <a href="#"><i class="lnr lnr-envelope"></i>dogcat@clinicaveterinaria.com.br</a><br>
+                            <a href="#"><i class="lnr lnr-phone"></i>12 3333-9999 | 12 98989-8899</a><br>
+                            <a href="https://plus.google.com/115577720344312495409" target="_blank"> <i
+                                    class="social_googleplus_square"></i></a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
