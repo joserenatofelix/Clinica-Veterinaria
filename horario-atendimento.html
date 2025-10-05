@@ -1,4 +1,3 @@
-<!-- imagem, horario atendimento,tabelas, -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,57 +5,492 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Horários de Atendimento - VetCare Clínica Veterinária</title>
     <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos específicos para a página de horários */
+        .schedule-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .schedule-hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .schedule-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .schedule-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Tabelas modernas */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: white;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 1.2rem;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .schedule-table thead {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .schedule-table thead th {
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.5rem;
+        }
+
+        .schedule-table tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+        .schedule-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .schedule-table tbody th {
+            background-color: var(--light-bg);
+            font-weight: 600;
+            text-align: left;
+            color: var(--primary-color);
+        }
+
+        .service-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .badge-emergency {
+            background-color: #ffe6e6;
+            color: #d63031;
+        }
+
+        .badge-24h {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .badge-normal {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        /* Cards de serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Seção de emergência */
+        .emergency-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .emergency-banner h2 {
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .emergency-icon {
+            font-size: 2rem;
+        }
+
+        .emergency-phone {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Notas importantes */
+        .notes-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .notes-section h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notes-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notes-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .notes-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Responsividade para tabelas */
+        @media (max-width: 768px) {
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .schedule-hero {
+                padding: 2rem 1rem;
+            }
+            
+            .schedule-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .emergency-phone {
+                flex-direction: column;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .schedule-table,
+        .service-card,
+        .emergency-banner {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
+    </style>
 </head>
 
-<body class="body-atendimento">
-    <section>
-        <h1 class="titulo-atendimento">Horários de atendimento</h1>
-        <a href="index.html">voltar</a>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo-container">
+                <img class="logo" src="image/logo3.png" alt="logo" width="150">
+                <div class="clinic-name">VetCare</div>
+            </div>
+        </div>
 
-        <table class="horario-atendimento" width:100% border="1px solid black ">
-            <caption class="titulo-tabela">Horários de atendimento</caption><br><br><br><br>
-            <br><br><br><br><br><br>
-            <thead>
-                <tr>
-                    <th>Serviços</th>
-                    <th>Segunda a Sexta</th>
-                    <th>Sábados</th>
-                    <th>Feriados</th>
-                    <th>Domingos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Consulta Veterinário</th>
-                    <td>08h às 19h</td>
-                    <td>08h às 12</td>
-                    <td>somente urgência</td>
-                    <td>somente urgência</td>
-                </tr>
-                <tr>
-                    <th>Internação</th>
-                    <td>24h</td>
-                    <td>24h</td>
-                    <td>24h</td>
-                    <td>24h</td>
-                </tr>
-                <tr>
-                    <th>Horários de visitas</th>
-                    <td>09 às 15h</td>
-                    <td>10h às 14h</td>
-                    <td>09h às 10h</td>
-                    <td>09h às 10h</td>
-                </tr>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="sobre-nos1.html">Sobre nós</a></li>
+                <li><a href="horario-atendimento.html">Horário de atendimento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="index.html#agendar">Agendar Consulta</a></li>
+            </ul>
+        </div>
 
+        <div class="main">
+            <div class="schedule-hero">
+                <h1>Horários de Atendimento</h1>
+                <p>Conheça nossos horários e serviços disponíveis para melhor atender você e seu pet</p>
+            </div>
 
-            </tbody>
-        </table>
-    </section>
-    </article>
-    </section>
+            <div class="container schedule-container">
+                <a href="index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar para Página Inicial
+                </a>
 
+                <!-- Tabela de Horários -->
+                <div class="content">
+                    <h2>Horários dos Nossos Serviços</h2>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Serviços</th>
+                                <th>Segunda a Sexta</th>
+                                <th>Sábados</th>
+                                <th>Feriados</th>
+                                <th>Domingos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Consulta Veterinária</th>
+                                <td>
+                                    <span class="service-badge badge-normal">08h às 19h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-normal">08h às 12h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-emergency">Somente urgência</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-emergency">Somente urgência</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Internação</th>
+                                <td>
+                                    <span class="service-badge badge-24h">24 horas</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-24h">24 horas</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-24h">24 horas</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-24h">24 horas</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Horários de Visitas</th>
+                                <td>
+                                    <span class="service-badge badge-normal">09h às 15h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-normal">10h às 14h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-normal">09h às 10h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-normal">09h às 10h</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Banho e Tosa</th>
+                                <td>
+                                    <span class="service-badge badge-normal">08h às 17h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-normal">08h às 12h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-emergency">Não funciona</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-emergency">Não funciona</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Vacinação</th>
+                                <td>
+                                    <span class="service-badge badge-normal">08h às 18h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-normal">08h às 12h</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-emergency">Urgência apenas</span>
+                                </td>
+                                <td>
+                                    <span class="service-badge badge-emergency">Urgência apenas</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Cards de Serviços -->
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h3>Consulta Veterinária</h3>
+                        <p>Atendimento especializado com veterinários qualificados para diagnóstico e tratamento do seu pet.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <h3>Internação</h3>
+                        <p>Ambiente seguro e monitorado 24h para internações e recuperação dos animais.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <h3>Vacinação</h3>
+                        <p>Proteja seu pet com nosso esquema completo de vacinação e prevenção de doenças.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-bath"></i>
+                        </div>
+                        <h3>Banho e Tosa</h3>
+                        <p>Serviços de higiene e beleza para deixar seu pet limpo e saudável.</p>
+                    </div>
+                </div>
+
+                <!-- Banner de Emergência -->
+                <div class="emergency-banner">
+                    <h2>
+                        <i class="fas fa-exclamation-triangle emergency-icon"></i>
+                        Atendimento de Emergência 24h
+                    </h2>
+                    <p>Para casos urgentes fora do horário comercial, estamos disponíveis 24 horas por dia</p>
+                    <div class="emergency-phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(11) 99999-8888</span>
+                    </div>
+                    <p class="emergency-note">Acidentes, intoxicações e situações graves - não hesite em nos contactar!</p>
+                </div>
+
+                <!-- Notas Importantes -->
+                <div class="notes-section">
+                    <h3>
+                        <i class="fas fa-info-circle"></i>
+                        Informações Importantes
+                    </h3>
+                    <ul class="notes-list">
+                        <li>Para atendimentos de emergência, pedimos que ligue antes de se dirigir à clínica</li>
+                        <li>Consultas devem ser agendadas com antecedência através do nosso site ou telefone</li>
+                        <li>Visitas aos animais internados devem respeitar os horários estabelecidos</li>
+                        <li>Em feriados, funcionamos apenas para casos de urgência e emergência</li>
+                        <li>Banho e tosa devem ser agendados com pelo menos 24h de antecedência</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="index.html">Página Inicial</a>
+                <a href="sobre-nos1.html">Sobre nós</a>
+                <a href="horario-atendimento.html">Horário de atendimento</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <p>&copy; 2023 VetCare - Clínica Veterinária. Todos os direitos reservados.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
