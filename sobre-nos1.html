@@ -5,363 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - VetCare Clínica Veterinária</title>
+    <title>Sobre Nós - FelixPets Clínica Veterinária</title>
     <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="sobre.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Estilos específicos para a página Sobre Nós */
-        .about-hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .about-hero h1 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 2.8rem;
-        }
-
-        .about-hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            padding: 12px 24px;
-            border: 2px solid var(--primary-color);
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .back-button:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateX(-5px);
-        }
-
-        /* Seções de conteúdo */
-        .about-section {
-            margin: 3rem 0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin: 2rem 0;
-        }
-
-        .about-text {
-            padding: 2rem;
-        }
-
-        .about-image {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            height: 400px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 4rem;
-        }
-
-        /* Cards de valores */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .value-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 4px solid var(--primary-color);
-        }
-
-        .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-
-        .value-icon {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .value-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .value-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Equipe */
-        .team-section {
-            background-color: var(--light-bg);
-            padding: 4rem 2rem;
-            border-radius: var(--border-radius);
-            margin: 4rem 0;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .team-card {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .team-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-        }
-
-        .team-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-role {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Estrutura */
-        .facilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .facility-card {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-
-        .facility-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .facility-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Estatísticas */
-        .stats-section {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            margin: 4rem 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item h2 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .stat-item p {
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-
-        /* Missão, Visão, Valores */
-        .mission-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .mission-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-        }
-
-        .mission-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-
-        .mission-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .mission-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Animações */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .value-card,
-        .team-card,
-        .facility-card,
-        .mission-card {
-            animation: fadeInUp 0.6s ease;
-        }
-
-        .value-card:nth-child(2) { animation-delay: 0.1s; }
-        .value-card:nth-child(3) { animation-delay: 0.2s; }
-        .value-card:nth-child(4) { animation-delay: 0.3s; }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-hero {
-                padding: 3rem 1rem;
-            }
-
-            .about-hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .about-hero p {
-                font-size: 1.1rem;
-            }
-
-            .values-grid,
-            .team-grid,
-            .facilities-grid,
-            .mission-section {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .about-hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-item h2 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="header">
             <div class="logo-container">
-                <img class="logo" src="image/logo3.png" alt="logo" width="150">
-                <div class="clinic-name">VetCare</div>
+                <img class="logo" src="image/logo.png" alt="logo" width="150">
+                <div class="clinic-name">FelixPets</div>
             </div>
-        </div>
-
-        <div class="menu">
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="sobre-nos1.html">Sobre nós</a></li>
-                <li><a href="horario-atendimento.html">Horário de atendimento</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="index.html#agendar">Agendar Consulta</a></li>
-            </ul>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="sobre-nos1.html" class="active">Sobre nós</a></li>
+                    <li><a href="horario-atendimento.html">Horário de atendimento</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="agendamento.html">Agendar Consulta</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu"><i class="fas fa-bars"></i></button>
         </div>
 
         <div class="main">
             <div class="about-hero">
-                <h1>Sobre a VetCare</h1>
+                <h1>Sobre a FelixPets</h1>
                 <p>Cuidando do seu pet com amor, tecnologia e expertise há mais de 15 anos</p>
             </div>
 
@@ -375,33 +46,37 @@
                 <div class="about-section">
                     <div class="about-content">
                         <div class="about-text">
-                            <h2>Nossa História</h2>
-                            <p>A <strong>VetCare Clínica Veterinária</strong> conta com uma equipe multidisciplinar de veterinários à sua disposição, preparada para oferecer o melhor atendimento ao seu pet.</p>
-                            <p>Tudo para atender o seu pet da melhor forma possível com respeito e todo carinho que ele merece. Nossa missão é garantir a saúde e bem-estar dos animais através de um atendimento humanizado e de excelência.</p>
+                            <h2>Uma Jornada de Amor e Cuidado</h2>
+                            <p>A <strong>FelixPets</strong> nasceu de um sonho: criar um lugar onde a medicina veterinária avançada se encontrasse com o amor incondicional pelos animais. Fundada em 2008 pela Dra. Ana Costa, nossa clínica começou como um pequeno consultório com a grande missão de oferecer um atendimento que fosse além do técnico, tratando cada pet como um membro da família.</p>
+                            <p>Ao longo dos anos, crescemos e nos tornamos um hospital veterinário de referência, investindo constantemente em tecnologia de ponta e na capacitação contínua de nossa equipe. Hoje, com orgulho, olhamos para trás e vemos uma história construída com dedicação, milhares de vidas salvas e a confiança de inúmeros tutores que nos entregam seus bens mais preciosos.</p>
+                            <p>Nossa paixão é o que nos move. Cada latido, miado ou piado é um lembrete do nosso propósito: garantir mais anos de vida feliz e saudável ao lado de quem você ama.</p>
                         </div>
-                        <div class="about-image">
-                            <i class="fas fa-heartbeat"></i>
+                        <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80'); background-size: cover; background-position: center;">
+                            <!-- 
+                                Esta imagem é um exemplo. 
+                                Recomendo substituí-la por uma foto real da sua clínica ou equipe para criar mais conexão com o cliente.
+                            -->
                         </div>
                     </div>
                 </div>
 
                 <!-- Missão, Visão, Valores -->
                 <div class="mission-section">
-                    <div class="mission-card">
+                    <div class="mission-card animate-on-scroll">
                         <div class="mission-icon">
                             <i class="fas fa-bullseye"></i>
                         </div>
                         <h3>Nossa Missão</h3>
                         <p>Oferecer atendimento veterinário de excelência, promovendo a saúde e bem-estar dos animais com comprometimento, tecnologia e amor.</p>
                     </div>
-                    <div class="mission-card">
+                    <div class="mission-card animate-on-scroll delay-1">
                         <div class="mission-icon">
                             <i class="fas fa-eye"></i>
                         </div>
                         <h3>Nossa Visão</h3>
                         <p>Ser referência em medicina veterinária, reconhecida pela qualidade do atendimento e pelo cuidado especial com cada animal.</p>
                     </div>
-                    <div class="mission-card">
+                    <div class="mission-card animate-on-scroll delay-2">
                         <div class="mission-icon">
                             <i class="fas fa-star"></i>
                         </div>
@@ -413,27 +88,28 @@
                 <!-- Estrutura -->
                 <div class="about-section">
                     <h2 class="text-center">Nossa Estrutura Completa</h2>
+                    <p class="text-center mb-2">Para oferecer um cuidado completo e integrado, a FelixPets investe em uma infraestrutura moderna. Cada detalhe foi pensado para garantir a segurança, o conforto e a eficiência no tratamento do seu pet.</p>
                     <div class="facilities-grid">
-                        <div class="facility-card">
+                        <div class="facility-card animate-on-scroll">
                             <div class="facility-icon">
                                 <i class="fas fa-clinic-medical"></i>
                             </div>
                             <h3>Internação</h3>
-                            <p>Com uma estrutura preparada para internação, disponibilizamos uma grande variedade de exames e diagnóstico para seu pet.</p>
+                            <p>Área climatizada e monitorada 24h por nossa equipe. Oferecemos baias individuais e confortáveis para garantir uma recuperação tranquila e segura.</p>
                         </div>
-                        <div class="facility-card">
+                        <div class="facility-card animate-on-scroll delay-1">
                             <div class="facility-icon">
                                 <i class="fas fa-paw"></i>
                             </div>
                             <h3>Pet Shop</h3>
-                            <p>Temos a área de pet shop onde além de oferecermos acessórios, alimentos e roupas para seu pet, oferecemos uma linha completa de medicamentos.</p>
+                            <p>Uma extensão do nosso cuidado, com rações terapêuticas, medicamentos e acessórios para enriquecimento ambiental recomendados por nossos veterinários.</p>
                         </div>
-                        <div class="facility-card">
+                        <div class="facility-card animate-on-scroll delay-2">
                             <div class="facility-icon">
                                 <i class="fas fa-microscope"></i>
                             </div>
                             <h3>Laboratório</h3>
-                            <p>Laboratório completo para exames de sangue, urina, imagem e outros diagnósticos com resultados rápidos e precisos.</p>
+                            <p>Análises clínicas com resultados em minutos (hemogramas, bioquímicos), agilizando o diagnóstico e o início do tratamento para seu animal.</p>
                         </div>
                     </div>
                 </div>
@@ -441,56 +117,57 @@
                 <!-- Valores -->
                 <div class="about-section">
                     <h2 class="text-center">O Que Nos Diferencia</h2>
+                    <p class="text-center mb-2">Entendemos que cada pet é único. Por isso, nosso compromisso vai além do tratamento, focando em uma experiência de cuidado completa e humanizada.</p>
                     <div class="values-grid">
-                        <div class="value-card">
+                        <div class="value-card animate-on-scroll">
                             <div class="value-icon">
                                 <i class="fas fa-user-md"></i>
                             </div>
                             <h3>Equipe Qualificada</h3>
-                            <p>Veterinários especializados em diversas áreas, sempre atualizados com as melhores práticas da medicina veterinária.</p>
+                            <p>Nossos profissionais estão em constante atualização, participando de congressos e cursos para trazer as técnicas mais modernas para seu pet.</p>
                         </div>
-                        <div class="value-card">
+                        <div class="value-card animate-on-scroll delay-1">
                             <div class="value-icon">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                             <h3>Atendimento Humanizado</h3>
-                            <p>Tratamos cada animal com o cuidado e respeito que merece, entendendo suas necessidades individuais.</p>
+                            <p>Criamos um ambiente calmo e acolhedor para reduzir o estresse do seu animal. Cada consulta é feita com paciência, carinho e respeito.</p>
                         </div>
-                        <div class="value-card">
+                        <div class="value-card animate-on-scroll delay-2">
                             <div class="value-icon">
                                 <i class="fas fa-cogs"></i>
                             </div>
                             <h3>Tecnologia Avançada</h3>
-                            <p>Equipamentos modernos e tecnologia de ponta para diagnósticos precisos e tratamentos eficazes.</p>
+                            <p>Investimos em equipamentos de ponta, como ultrassom digital e monitores multiparâmetros, para diagnósticos rápidos e tratamentos mais seguros.</p>
                         </div>
-                        <div class="value-card">
+                        <div class="value-card animate-on-scroll delay-3">
                             <div class="value-icon">
                                 <i class="fas fa-clock"></i>
                             </div>
                             <h3>Atendimento 24h</h3>
-                            <p>Plantão 24 horas para emergências e casos que necessitam de atenção imediata.</p>
+                            <p>Nossa equipe de emergência está sempre a postos, com um veterinário presente na clínica 24/7 para garantir socorro imediato quando seu pet mais precisar.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Estatísticas -->
-                <div class="stats-section">
+                <div class="stats-section animate-on-scroll">
                     <h2>Nossos Números</h2>
                     <p>Resultados que comprovam nossa dedicação e qualidade</p>
                     <div class="stats-grid">
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-scroll">
                             <h2>15+</h2>
                             <p>Anos de Experiência</p>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-scroll delay-1">
                             <h2>5.000+</h2>
                             <p>Pets Atendidos</p>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-scroll delay-2">
                             <h2>24h</h2>
                             <p>Atendimento de Emergência</p>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-scroll delay-3">
                             <h2>98%</h2>
                             <p>Taxa de Satisfação</p>
                         </div>
@@ -498,11 +175,11 @@
                 </div>
 
                 <!-- Equipe -->
-                <div class="team-section">
+                <div class="team-section animate-on-scroll">
                     <h2 class="text-center">Nossa Equipe</h2>
                     <p class="text-center">Profissionais dedicados e apaixonados por animais</p>
                     <div class="team-grid">
-                        <div class="team-card">
+                        <div class="team-card animate-on-scroll">
                             <div class="team-avatar">
                                 <i class="fas fa-user-md"></i>
                             </div>
@@ -510,7 +187,7 @@
                             <div class="team-role">Veterinário Chefe</div>
                             <p>Especialista em cirurgia e ortopedia veterinária com 12 anos de experiência.</p>
                         </div>
-                        <div class="team-card">
+                        <div class="team-card animate-on-scroll delay-1">
                             <div class="team-avatar">
                                 <i class="fas fa-user-md"></i>
                             </div>
@@ -518,7 +195,7 @@
                             <div class="team-role">Clínica Geral</div>
                             <p>Especializada em medicina preventiva e atendimento de animais exóticos.</p>
                         </div>
-                        <div class="team-card">
+                        <div class="team-card animate-on-scroll delay-2">
                             <div class="team-avatar">
                                 <i class="fas fa-user-nurse"></i>
                             </div>
@@ -538,7 +215,7 @@
                 <a href="horario-atendimento.html">Horário de atendimento</a>
                 <a href="contato.html">Contato</a>
             </div>
-            <p>&copy; 2023 VetCare - Clínica Veterinária. Todos os direitos reservados.</p>
+            <p>&copy; 2023 FelixPets - Clínica Veterinária. Todos os direitos reservados.</p>
         </div>
     </div>
 

@@ -51,12 +51,14 @@ body {
 .header {
     background: var(--bg-gradient);
     color: white;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
+    gap: 40px;
     box-shadow: var(--shadow);
     position: relative;
+    min-height: 80px;
     overflow: hidden;
 }
 
@@ -90,12 +92,57 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Menu de Navegação com fundo sutil */
+/* Efeito amarelo fluorescente piscando para a marca */
+.clinic-name {
+    color: #fffbe6; /* fallback claro */
+    position: relative;
+}
+.clinic-name--glow, .clinic-name {
+    color: #fffbe6;
+    /* cor base amarela fluorescente */
+    color: #fff200;
+    text-shadow:
+        0 0 6px rgba(255,255,200,0.9),
+        0 0 18px rgba(255,238,0,0.7),
+        0 0 30px rgba(255,210,0,0.5);
+    transition: text-shadow 220ms ease, transform 220ms ease;
+}
+
+@keyframes clinicGlow {
+    0% {
+        text-shadow: 0 0 4px rgba(255,255,200,0.6), 0 0 12px rgba(255,238,0,0.4), 0 0 20px rgba(255,210,0,0.25);
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(255,255,200,1), 0 0 26px rgba(255,238,0,0.9), 0 0 44px rgba(255,210,0,0.6);
+        transform: translateY(-1px);
+        opacity: 0.98;
+    }
+    100% {
+        text-shadow: 0 0 4px rgba(255,255,200,0.6), 0 0 12px rgba(255,238,0,0.4), 0 0 20px rgba(255,210,0,0.25);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.clinic-name {
+    animation: clinicGlow 1.6s ease-in-out infinite;
+}
+
+/* Respeitar preferências de redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    .clinic-name {
+        animation: none;
+        text-shadow: 0 0 6px rgba(255,255,200,0.9);
+    }
+}
+
+/* Menu de Navegação */
 .menu {
-    background: var(--bg-cool);
-    padding: 1rem;
-    box-shadow: var(--shadow);
-    border-bottom: 3px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .menu ul {
@@ -103,25 +150,114 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
 .menu a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: white;
     font-weight: 600;
     padding: 8px 16px;
     border-radius: 25px;
     transition: all 0.3s ease;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: transparent;
+    border: 2px solid transparent;
 }
 
 .menu a:hover {
-    background: var(--primary-color);
-    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+/* Botão Hamburger para menu responsivo */
+.hamburger-menu {
+    display: none; /* Escondido em telas grandes */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.hamburger-menu {
+    /* Escondido por padrão em telas maiores; exibido apenas via media query abaixo */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+.hamburger-menu:hover { transform: translateY(-2px); background: rgba(255,255,255,0.12); }
+.hamburger-menu i { pointer-events: none; }
+
+/* Painel do menu para mobile: desliza a partir do topo */
+.menu {
+    transition: transform 280ms ease, opacity 220ms ease;
+}
+.menu.open {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Backdrop do menu (adicionado via JS) */
+#vc-menu-backdrop {
+    display: block; /* gerenciado via inline styles pelo JS */
+}
+
+/* Painel vertical no mobile quando aberto (refinamento) */
+@media (max-width: 768px) {
+    .menu {
+        transform: translateY(-8px);
+        opacity: 0;
+        padding-bottom: 12px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+    .menu.open {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .menu ul li { width: 100%; }
+    .menu a { display: block; width: 100%; padding: 12px 20px; text-align: left; }
+}
+
+
+/* Estilo para o link da página ativa */
+.menu a.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.menu a.active:hover {
+    background: #45b56b; /* Um pouco mais escuro no hover */
+}
+
+/* Theme toggle dentro do menu */
+.theme-toggle-item { display: flex; align-items: center; }
+.theme-toggle {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.08);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.theme-toggle i { font-size: 1rem; }
+.theme-toggle:hover { background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+
+@media (max-width: 768px) {
+    .theme-toggle { margin-right: 8px; }
+    .theme-toggle-item { margin: 8px 0; }
 }
 
 /* Conteúdo Principal com fundo suave */
@@ -488,13 +624,41 @@ textarea.form-control, textarea.input-padrao {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .appointment-form, .contact-form {
-        grid-template-columns: 1fr;
+    .header {
+        padding: 0.5rem 1rem;
+        /* Permitir que o menu absoluto flutue fora do header (corrige corte) */
+        overflow: visible;
     }
-    
+
+    .menu {
+        display: none; /* Esconde o menu principal */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-gradient);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 1001; /* acima do backdrop (backdrop usa 999) */
+    }
+
+    /* Forçar exibição quando aberto pelo JS */
+    .menu.open { display: flex !important; }
+
     .menu ul {
         flex-direction: column;
+        width: 100%;
         align-items: center;
+    }
+
+    .hamburger-menu {
+        display: inline-flex; /* Mostra o botão hamburger apenas em telas pequenas */
+        justify-self: end;
+    }
+
+    .appointment-form, .contact-form {
+        grid-template-columns: 1fr;
     }
     
     .features {
@@ -572,4 +736,113 @@ textarea.form-control, textarea.input-padrao {
         radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
+}
+
+/* ===== Ajustes para funcionalidades JS adicionadas ===== */
+
+/* Menu: quando aberto no mobile (classe toggled pelo JS) */
+.menu.open {
+    display: flex;
+}
+
+/* Melhor aparência do botão hamburger quando ativo */
+.hamburger-menu.open {
+    transform: rotate(90deg);
+}
+
+/* Modal: quando aberto pelo JS */
+.modal.open {
+    display: flex;
+}
+
+/* Toasts simples gerados via JS */
+#vc-toast-container { pointer-events: none; }
+.vc-toast {
+    min-width: 220px;
+    max-width: 360px;
+    font-weight: 600;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: auto;
+}
+.vc-toast--hide { opacity: 0; transform: translateY(10px); }
+
+/* Tema escuro: variáveis e ajustes */
+.theme-dark {
+    --primary-color: #6fd3c7;
+    --secondary-color: #9ad3a3;
+    --accent-color: #ff9aa2;
+    --text-color: #e6eef2;
+    --light-bg: linear-gradient(135deg, #0f1724 0%, #0b1a2b 100%);
+    --white: #0b1220;
+    background: linear-gradient(135deg, #071022 0%, #0b1a2b 100%);
+}
+
+/* Ajustes visuais para header e elementos em tema escuro */
+.theme-dark .header { background: linear-gradient(135deg, #06202b, #0b2a3a); }
+.theme-dark .clinic-name { color: #bde7df; }
+.theme-dark .menu a { color: #e6eef2; }
+.theme-dark .content { background: rgba(10,16,22,0.6); border: 1px solid rgba(255,255,255,0.04); }
+.theme-dark .form-container { background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+.theme-dark .feature-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.02); }
+
+/* Button theme toggle minimal styling */
+.theme-toggle { font-weight: 700; letter-spacing: 0.2px; }
+
+/* Pequenas melhorias de foco para acessibilidade */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid rgba(74,144,226,0.18);
+    outline-offset: 2px;
+}
+
+/* Botão WhatsApp flutuante */
+.vc-wa-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    padding: 12px 14px;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(18,140,126,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    z-index: 10010;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.vc-wa-button:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(18,140,126,0.28); }
+.vc-wa-button i { font-size: 1.2rem; }
+.vc-wa-label { font-weight: 700; font-size: 0.95rem; }
+.vc-wa-badge { width: 10px; height: 10px; background: rgba(255,255,255,0.15); border-radius: 50%; display: inline-block; }
+
+@media (max-width: 480px) {
+    .vc-wa-button { right: 14px; bottom: 14px; padding: 10px 12px; gap: 8px; }
+    .vc-wa-label { display: none; } /* mostrar só o ícone em telas pequenas */
+}
+
+/* Emergência: alinhar GIF e título na mesma linha */
+.emergency-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.emergency-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.1;
+}
+.emergency-icon {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .emergency-header { gap: 8px; }
+    .emergency-header h2 { font-size: 1.15rem; }
+    .emergency-icon { width: 40px; height: 40px; }
 }

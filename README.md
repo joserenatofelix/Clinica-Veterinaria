@@ -1,83 +1,126 @@
-![logo3](https://user-images.githubusercontent.com/93296913/217840554-b47d50f2-f05e-4915-a68c-2c6c44b45fb8.png)
+<p align="center">
+  <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener">
+    <img src="image/logo.png" width="100" alt="Logo do projeto" />
+  </a>
+</p>
 
+<p align="center">
+  <a><img src="https://img.shields.io/github/last-commit/joserenatofelix/Clinica-Veterinaria?style=for-the-badge&logo=github" alt="last-commit"/></a>
+  <a><img src="https://img.shields.io/github/languages/code-size/joserenatofelix/Clinica-Veterinaria?style=for-the-badge&logo=github" alt="code-size"/></a>
+  <a><img src="https://img.shields.io/github/languages/top/joserenatofelix/Clinica-Veterinaria?style=for-the-badge&logo=javascript" alt="top-language"/></a>
+  <a><img src="https://img.shields.io/github/license/joserenatofelix/Clinica-Veterinaria?style=for-the-badge&logo=mit" alt="license"/></a>
+</p>
 
-<h2 align="center">
-    Trilha HTML - Dio.me
-</h2>
+## 🐾 Clínica Veterinária - Site Institucional
 
-## HTML - Conceitos Básicos
+Um site simples e responsivo para uma clínica veterinária, criado como exercício da Trilha HTML. Ele contém páginas principais, formulário de contato, horário de atendimento e agendamento.
 
-Este desafio tem como objetivo, criar um site "quase" completo, com tudo o que vimos neste módulo. Os temas que deverão ser abordados são:
-- Formulários
-- Estruturação e formatação de texto
-- Mídias
-- Tabelas
+## ✨ Tecnologias
 
-Além de outros recursos falados nas aulas!
+- [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-## Instruções
-1. Você deve criar um site de uma clínica médica (você escolhe a especialidade)
-2. Este site deve conter o seguinte menu de navegação:
-    - Página Principal
-    - Sobre a clínica
-    - Horário de Atendimento
-    - Contato
-3. Deve, obrigatoriamente, utilizar todas os assuntos abordados nas aulas.
+---
 
-Abaixo como cada página deve ser criada e estruturada.
+## 📋 Sobre o Projeto
 
-### Estrutura das páginas
+- Projeto exemplo para a disciplina/trilha de HTML.
+- Estrutura com páginas principais: `index.html`, `sobre-nos1.html`, `horario-atendimento.html`, `contato.html`, `agendamento.html`.
+- Layout leve, com foco em estrutura semântica, formulários e elementos de mídia.
 
-Todas as páginas terão que seguir um padrão pré-definido. Como não aprendemos sobre CSS ainda, utilize o arquivo `template.html` para utilizar como base. Ele segue uma estrutura semelhante a image abaixo.
+---
 
-![Estrutura](https://i.stack.imgur.com/9jI6f.gif)
+## 📝 Funcionalidades
 
-\* _No template tem algumas cores mas é apenas para melhor visualização. Fique a vontade para alterar da melhor forma._
+- Menu de navegação entre páginas
+- Página Inicial com apresentação da clínica
+- Página Sobre com informações institucionais
+- Horário de Atendimento com tabela de horários
+- Página de Contato com formulário (nome, e-mail, assunto, mensagem) e iframe de localização
+- Página de Agendamento
+- Layout responsivo básico com CSS
 
-No **Menu**, ficará localizado o menu de navegação (ah vá!), no **Header** de cada página ficará uma imagem, no **Footer** informações de contato, e o **Content** é o conteúdo de cada página.
-### Página Principal
-1. Deve ter uma imagem no **Header**.
-2. Em **Content** uma breve descrição sobre a clínica.
-3. **Menu** e **Footer** padrões em todas as páginas.
+---
 
-### Sobre a clínica
-1. Deve ter uma imagem diferente no **Header**.
-2. Em **Content** um texto falando sobre a clínica.
-3. **Menu** e **Footer** padrões em todas as páginas.
+## 🗂️ Estrutura do Projeto
 
-### Horário de Atendimento
-1. Deve ter uma imagem diferente no **Header**.
-2. Em **Content** um pequeno texto falando sobre os serviços, e uma tabela de preços, onde cada linha é um serviço, com o preço de cada um de acordo com os dias da semana.
+```
+Clinica-Veterinaria/
+├── index.html                 # Página principal
+├── agendamento.html           # Formulário de agendamento
+├── contato.html               # Página de contato com formulário e mapa
+├── horario-atendimento.html   # Tabela de horários
+├── sobre-nos1.html            # Página sobre a clínica
+├── base.css                   # Estilos principais
+├── sobre.css                  # Estilos da página Sobre
+├── script.js                  # JS do projeto
+├── image/                     # Imagens e assets
+│   ├── logo.png
+│   ├── bichos.jpg
+│   └── emergencia.gif
+├── README.md                  # Documentação
+└── LICENSE                    # Licença
+```
 
-|Serviços |Segunda a Sexta | Sábados | Feriados |
-|---|---|---|---|
-|Clínica geral | 08h - 19h  | 08h - 14h | 08h - 14h  |
-|Psicologia | 08h - 19h  | 08h - 14h | 08h - 14h  |
-|Pediatria | 08h - 19h  | 08h - 18h | - |
-|Oftalmologia | 08h - 19h  | 08h - 18h | - |
-|||||
+---
 
-3. **Menu** e **Footer** padrões em todas as páginas.
+## ⚙️ Como executar
 
+### Pré-requisitos
 
-### Contato
-1. Deve ter uma imagem diferente no **Header**.
-2. Em **Content** deve ter:
-    - Os telefones de contato (celular e whatsapp)
-    - Endereço completo da clínica
-    - Um Iframe com o Google Maps apontando o endereço da clínica
-    - Um formulário de contato com:
-        - Nome (type="text")
-        - E-mail (type="email")
-        - Assunto (type="text")
-        - Mensagem (textarea)
-        - Botões de envias e limpar formulário
+- Um navegador moderno (Chrome, Firefox, Edge, Safari)
+- (Opcional) servidor local para facilitar rotas e atualizações (extensão Live Server no VS Code)
 
-3. **Menu** e **Footer** padrões em todas as páginas.
+### Executando localmente
 
-Desafio está lançado! Com tudo que aprendemos no Módulo II é perfeitamente possível criar este site! 
+1. Clone o repositório:
 
-Bora pra cima!
+```
+git clone https://github.com/joserenatofelix/Clinica-Veterinaria.git
+```
 
-curso administrado pelo mentor Diogo Mainardes
-Sênior Developer, Cadmus
+2. Abra a pasta e abra `index.html` no navegador.
+
+Opções:
+- Abrir o arquivo diretamente no navegador.
+- Usar Live Server (VS Code) para servir em http://127.0.0.1:5500
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature: `git checkout -b feature/minha-feature`
+3. Faça commits claros: `git commit -m "feat: descrição da mudança"`
+4. Envie para sua branch: `git push origin feature/minha-feature`
+5. Abra um Pull Request
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT — veja o arquivo `LICENSE` para detalhes.
+
+---
+
+## 👨‍💻 Autor
+
+**Renato Felix**
+
+---
+
+## 🎉 Agradecimentos
+
+- Material da Trilha HTML
+- Imagens do repositório
+
+---
+
+Se gostou, deixe uma estrela ⭐
+
+Desenvolvido com ❤️ por Renato Felix
+
+![alt text](image.png)

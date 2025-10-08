@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetCare - Clínica Veterinária</title>
+    <title>FelixPets - Clínica Veterinária</title>
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            height: 400px;
+            background-image: url('image/bichos.jpg');
+            background-size: contain; /* Garante que a imagem inteira apareça */
+            background-position: center;
+            background-repeat: no-repeat; /* Evita que a imagem se repita */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            -webkit-text-fill-color: white; /* Override gradient color */
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="header">
             <div class="logo-container">
-                <img class="logo" src="image/logo3.png" alt="logo" width="150">
-                <div class="clinic-name">VetCare</div>
+                <img class="logo" src="image/logo.png" alt="logo" width="150">
+                <div class="clinic-name">FelixPets</div>
             </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html" class="active">Página Inicial</a></li>
+                    <li><a href="sobre-nos1.html">Sobre nós</a></li>
+                    <li><a href="horario-atendimento.html">Horário de atendimento</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="agendamento.html">Agendar Consulta</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu"><i class="fas fa-bars"></i></button>
         </div>
 
-        <div class="menu">
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="sobre-nos1.html">Sobre nós</a></li>
-                <li><a href="horario-atendimento.html">Horário de atendimento</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="#" id="agendar-btn">Agendar Consulta</a></li>
-            </ul>
-        </div>
-
-        <div class="container main">
+        <div class="main">
+            <div class="hero-section">
+                <h1>Cuidando de quem você ama</h1>
+            </div>
             <div class="content">
-                <h1>Clínica Veterinária VetCare</h1>
-                <p>Bem-vindo à VetCare, onde o bem-estar do seu pet é a nossa prioridade. Oferecemos serviços veterinários de alta qualidade com profissionais especializados e equipamentos modernos.</p>
+                <h1>Clínica Veterinária FelixPets</h1>
+                <p>Bem-vindo à FelixPets, onde o bem-estar do seu pet é a nossa prioridade. Oferecemos serviços veterinários de alta qualidade com profissionais especializados e equipamentos modernos.</p>
                 
-                <h3>Por que escolher a VetCare?</h3>
+                <h3>Por que escolher a FelixPets?</h3>
                 <div class="features">
                     <div class="feature-card">
                         <div class="feature-icon">🐾</div>
@@ -55,96 +77,6 @@
                         <p>Variedade de acessórios para o bem-estar e diversão do seu animal de estimação.</p>
                     </div>
                 </div>
-                
-                <div class="appointment-section">
-                    <h3>Agende uma Consulta</h3>
-                    <p>Preencha o formulário abaixo para agendar uma consulta para o seu pet.</p>
-                    
-                    <form id="appointment-form" class="appointment-form">
-                        <div class="form-group">
-                            <label for="pet-name">Nome do Pet</label>
-                            <input type="text" id="pet-name" name="pet-name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="pet-type">Tipo de Animal</label>
-                            <select id="pet-type" name="pet-type" class="form-control" required>
-                                <option value="">Selecione...</option>
-                                <option value="cachorro">Cachorro</option>
-                                <option value="gato">Gato</option>
-                                <option value="ave">Ave</option>
-                                <option value="roedor">Roedor</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="owner-name">Nome do Tutor</label>
-                            <input type="text" id="owner-name" name="owner-name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required placeholder="(xx) xxxxx-xxxx">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="appointment-date">Data da Consulta</label>
-                            <input type="date" id="appointment-date" name="appointment-date" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="appointment-time">Horário</label>
-                            <select id="appointment-time" name="appointment-time" class="form-control" required>
-                                <option value="">Selecione...</option>
-                                <option value="08:00">08:00</option>
-                                <option value="09:00">09:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Serviço</label>
-                            <select id="service" name="service" class="form-control" required>
-                                <option value="">Selecione...</option>
-                                <option value="consulta">Consulta Geral</option>
-                                <option value="vacina">Vacinação</option>
-                                <option value="cirurgia">Cirurgia</option>
-                                <option value="exame">Exames</option>
-                                <option value="banho">Banho e Tosa</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="notes">Observações</label>
-                            <textarea id="notes" name="notes" class="form-control" rows="4"></textarea>
-                        </div>
-                        
-                        <div class="form-group full-width text-center">
-                            <button type="submit" class="btn btn-block">Agendar Consulta</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal de confirmação -->
-        <div id="confirmation-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" id="close-modal">&times;</span>
-                <h2>Consulta Agendada com Sucesso!</h2>
-                <div id="confirmation-message"></div>
-                <button class="btn btn-secondary mt-2" id="new-appointment-btn">Agendar Nova Consulta</button>
             </div>
         </div>
 
@@ -155,7 +87,7 @@
                 <a href="horario-atendimento.html">Horário de atendimento</a>
                 <a href="contato.html">Contato</a>
             </div>
-            <p>&copy; 2023 VetCare - Clínica Veterinária. Todos os direitos reservados.</p>
+            <p>&copy; 2023 FelixPets - Clínica Veterinária. Todos os direitos reservados.</p>
         </div>
     </div>
 
